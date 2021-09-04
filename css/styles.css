@@ -122,7 +122,25 @@ ul {
 .site-nav-link:hover,
 .site-nav-link:focus {
   color: var(--accent-color);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.site-nav-link {
+  position: relative;
+}
+.current::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #2196f3;
+  border-radius: 2px;
+  bottom: -1px;
+  left: 0;
+}
+
 .site-nav-link.current {
   color: var(--accent-color);
 }
@@ -151,6 +169,8 @@ ul {
 .contacts-link:hover,
 .contacts-link:focus {
   color: var(--accent-color);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-icons-mailo {
   width: 16px;
@@ -180,6 +200,8 @@ ul {
 .contacts-address-link:hover,
 .contacts-address-link:focus {
   color: var(--accent-color);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-address-text {
@@ -248,6 +270,8 @@ ul {
 .hero-button:focus {
   color: var(--primary-white-color);
   background-color: #188ce8;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*все заголовки */
@@ -318,6 +342,28 @@ ul {
   margin-right: 0;
 }
 
+.work-thumb {
+  position: relative;
+}
+.work-label-text {
+  color: #ffffff;
+
+  font-weight: 700px;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.work-label {
+  position: absolute;
+  width: 370px;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
+  padding-top: 27px;
+  padding-bottom: 27px;
+  bottom: 0;
+}
+
 /* список команды, фото*/
 .team-color {
   background-color: #f5f4fa;
@@ -385,6 +431,8 @@ ul {
 .team-link:focus {
   background-color: #2196f3;
   color: #ffffff;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-icons-link {
@@ -424,6 +472,8 @@ ul {
 .clients-link:focus {
   color: #2196f3;
   border: 1px solid #2196f3;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-item + .clients-item {
@@ -451,6 +501,8 @@ ul {
 .footer-link:hover,
 .footer-link:focus {
   background-color: #2196f3;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-icons-link {
@@ -515,6 +567,8 @@ ul {
   background-color: var(--accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*список проэктов*/
@@ -539,6 +593,7 @@ ul {
 .projects-link:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .projects-title {
@@ -566,4 +621,82 @@ ul {
 .projects-text {
   margin-top: 4px;
   margin-bottom: 0px;
+}
+
+.projects-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-card-label {
+  position: absolute;
+  width: 370px;
+  height: 294px;
+  background-color: rgba(33, 150, 243, 0.9);
+  top: 0;
+  padding: 63px 24px;
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projects-card-text {
+  color: #ffffff;
+
+  font-size: 18px;
+  line-height: 1.56;
+}
+
+.projects-link:hover .projects-card-label,
+.projects-link:focus .projects-card-label {
+  transform: translateY(0);
+}
+/*мадальное окно*/
+.backdrop {
+  position: fixed;
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1024px;
+
+  border: rgba(0, 0, 0, 0, 1);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 528px;
+  min-height: 581px;
+
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.modal-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  margin-top: 8px;
+  margin-right: 8px;
+
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+
+  background-image: url(../imeges/close.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
